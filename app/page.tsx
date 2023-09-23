@@ -13,7 +13,7 @@ const Home = () => {
   const handleButtonClick = () => router.push('/quiz');
 
   return (
-    <div className='text-center w-full p-5 min-h-full relative'>
+    <div className='text-center w-full min-h-full relative p-5 bg-gradient-to-t from-[#AF9CF3]'>
       <Image className="h-[40px] w-[290px] m-auto" src={Logo} width={0} height={0} alt='logo' />
       <Image className="h-[396px] w-[232px] m-auto" src={Quiz} width={0} height={0} alt='quiz-logo' />
       <Button text='Start' onClick={handleButtonClick} />

@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gradient-to-t from-[#AF9CF3]">{children}</body>
+      <body className="bg-[#AF9CF3]">{children}</body>
     </html>
   )
 }
