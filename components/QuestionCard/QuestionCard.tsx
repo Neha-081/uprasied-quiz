@@ -21,7 +21,7 @@ const QuestionCard: React.FC<Props> = ({
 }) => {
   return (
     <div>
-      <p className='text-[15px] max-w-[400px] font-bold text-black' dangerouslySetInnerHTML={{ __html: question }} />
+      <p className='text-[15px] max-w-[400px] font-bold text-black mt-10' dangerouslySetInnerHTML={{ __html: question }} />
       <div className='flex flex-col items-center pt-8'>
         {answers.map(answer => (
           <div

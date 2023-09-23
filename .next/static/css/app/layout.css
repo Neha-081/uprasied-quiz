@@ -557,14 +557,47 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.absolute {
+  position: absolute;
+}
 .relative {
   position: relative;
 }
 .bottom-0 {
   bottom: 0px;
 }
+.left-0 {
+  left: 0px;
+}
+.right-0 {
+  right: 0px;
+}
+.top-0 {
+  top: 0px;
+}
+.top-10 {
+  top: 2.5rem;
+}
+.top-12 {
+  top: 3rem;
+}
+.top-14 {
+  top: 3.5rem;
+}
+.top-16 {
+  top: 4rem;
+}
+.top-20 {
+  top: 5rem;
+}
+.top-24 {
+  top: 6rem;
+}
 .m-auto {
   margin: auto;
+}
+.m-5 {
+  margin: 1.25rem;
 }
 .mx-5 {
   margin-left: 1.25rem;
@@ -576,6 +609,15 @@ video {
 }
 .mt-16 {
   margin-top: 4rem;
+}
+.mt-5 {
+  margin-top: 1.25rem;
+}
+.mt-10 {
+  margin-top: 2.5rem;
+}
+.block {
+  display: block;
 }
 .flex {
   display: flex;
@@ -594,6 +636,12 @@ video {
 }
 .h-full {
   height: 100%;
+}
+.h-\[150px\] {
+  height: 150px;
+}
+.h-\[120px\] {
+  height: 120px;
 }
 .min-h-\[60px\] {
   min-height: 60px;
@@ -706,6 +754,12 @@ video {
 .p-8 {
   padding: 2rem;
 }
+.p-2 {
+  padding: 0.5rem;
+}
+.p-1 {
+  padding: 0.25rem;
+}
 .pb-2 {
   padding-bottom: 0.5rem;
 }
@@ -731,6 +785,10 @@ video {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 .font-\[600\] {
   font-weight: 600;
