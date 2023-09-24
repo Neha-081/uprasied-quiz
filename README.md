@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Upraised Quiz
+
+## Overview
+
+Quiz designed to test your knowledge of key concepts in various aspects of fields. Quiz contaning multiple choice questions having one answer correct with timer.
+On selection of the answer, correct and wrong answer will get displayed, by ending the quiz a score card will get display at the end.
+
+
+## Demo
+
+Link - https://deft-tulumba-72f70d.netlify.app
+
+
+# Technology
+
+- NextJS
+- JavaScript
+- TypeScript
+- CSS
+- HTML
+- npm
+
+# Libraries Used
+
+- react-circular-progressbar
+- react-d3-speedometer
+- TailwindCSS
+
+## Table of Contents
+
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Screenshots](#screenshots)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Before you begin, ensure you have met the following requirements:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Node.js and npm installed (Node.js version 14+ recommended)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone this repository:
 
-## Learn More
+   ```sh
+   git clone git@github.com:Neha-081/uprasied-quiz.git
 
-To learn more about Next.js, take a look at the following resources:
+2. Change to the project directory:
+      ```sh
+   cd upraised-quiz
+      
+4. Install the project dependencies:
+    ```sh
+   npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+6. To run the project locally, use the following command:
+   ```sh
+   npm run dev
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+This will start the development server, and you can access the project in your web browser at http://localhost:3000.  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+# Screenshots
+
+Landing page
+
+
+<img width="427" alt="Screenshot 2023-09-24 at 9 50 40 PM" src="https://github.com/Neha-081/uprasied-quiz/assets/87421798/652d6696-eb77-4cbf-ad63-0fee4dee67bd">
+
+
+
+
+
+Quiz page
+
+
+<img width="430" alt="Screenshot 2023-09-24 at 9 51 35 PM" src="https://github.com/Neha-081/uprasied-quiz/assets/87421798/381a71ee-c35c-45ab-88cf-6aa40eb26273">
+
+
+
+
+
+
+After selection of answer
+
+
+<img width="429" alt="Screenshot 2023-09-24 at 9 51 14 PM" src="https://github.com/Neha-081/uprasied-quiz/assets/87421798/339ac3c6-bb2f-4c31-bd30-1c0a1e4c7287">
+
+
+
+
+
+
+Result page for score
+
+
+<img width="428" alt="Screenshot 2023-09-24 at 9 51 57 PM" src="https://github.com/Neha-081/uprasied-quiz/assets/87421798/f841d9e2-6d11-4ab8-9ab8-d385762a7200">
+
+
+
+
+
+
+
+## Contact
+
+Feel free to reach me ->
+- Email - <nehaprajapati1150@gmail.com> 
+- LinkedIn - https://linkedin.com/in/neha-prajapati-1150
+
+
