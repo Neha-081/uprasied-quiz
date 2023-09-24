@@ -1,6 +1,4 @@
 // Helpers
-
-import Image from "next/image";
 import { getBGColor, getCheckboxColor } from "./helper";
 
 type Props = {
@@ -11,6 +9,7 @@ type Props = {
   correctAnswer: string;
   onClick: (answer: string, currentQuestionIndex: number) => void;
   imageurl: string;
+  timeTaken: number;
 };
 
 const QuestionCard: React.FC<Props> = ({
@@ -21,9 +20,13 @@ const QuestionCard: React.FC<Props> = ({
   onClick,
   correctAnswer,
   imageurl,
+  timeTaken
 }) => {
+
+
   return (
     <div>
+      <p className="text-black font-base">Time:<span className="text-red-500 font-bold"> {timeTaken}s</span></p>
       <p
         className="text-[15px] max-w-[400px] font-bold text-black mt-16"
         dangerouslySetInnerHTML={{ __html: question }}

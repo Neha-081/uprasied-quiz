@@ -12,10 +12,8 @@ type Props = {
 };
 
 const ScoreCard: React.FC<Props> = ({ score, totalQuestions }) => {
-  console.log(score, "score");
 
   const router = useRouter();
-  console.log((score / totalQuestions) * 100, "score/totalQuestions * 100");
 
   return (
     <div className="h-full relative bg-[#AF9CF3]">

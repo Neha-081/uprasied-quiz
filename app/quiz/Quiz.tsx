@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { usePathname } from "next/navigation";
@@ -21,7 +20,6 @@ type Props = {
 };
 
 const Quiz = ({ questions, totalQuestions }: Props) => {
-  console.log(totalQuestions, "totalQuestions");
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0);
   const [score, setScore] = React.useState(0);
@@ -30,22 +28,27 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
   const [userAnswers, setUserAnswers] = React.useState<Record<number, string>>(
     {}
   );
-  console.log(userData, "userData");
+  const [timeTaken, setTimeTaken] = useState(0);
 
-  const pathname = usePathname();
-  console.log(userAnswers, "userAnswers");
+  useEffect(() => {
+    setTimeTaken(0)
+  }, [currentQuestionIndex])
+
+  useEffect(() => {
+    const timeout = setInterval(() => {
+      setTimeTaken(timeTaken + 1);
+    }, 1000);
+    return () => {
+      clearInterval(timeout);
+    };
+  }, [timeTaken]);
+
 
   const isQuestionAnswered = userAnswers[currentQuestionIndex] ? true : false;
-  console.log(isQuestionAnswered, "isQuestionAnswered");
-
-  const router = useRouter();
-
   const handleOnAnswerClick = (
     answer: string,
-    currentQuestionIndex: number
+    currentQuestionIndex: number,
   ) => {
-    if (!isQuestionAnswered) {
-    }
     // If user has already answered, do nothing
     if (isQuestionAnswered) return;
     // Check answer against correct answer
@@ -54,7 +57,7 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
     if (isCorrect) setScore((prev) => prev + 1);
     // Save the answer in the object for user answers
     setUserAnswers((prev) => ({ ...prev, [currentQuestionIndex]: answer }));
-
+    const start = new Date();
     // mock post API having payload for answer and timme taken for each answer by user
     fetch("https://mocki.io/v1/06d5e9e1-3cf4-4fd1-85f2-42ad7b8a28ef", {
       method: "POST",
@@ -62,7 +65,7 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
         title: "userAnswers",
         body: {
           userAnswer: answer,
-          timeTaken: 5000,
+          timeTaken: timeTaken,
         },
       }),
       headers: {
@@ -78,7 +81,6 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
       });
   };
 
-  const percentage = 66;
 
   const handleChangeQuestion = (step: number) => {
     const newQuestionIndex = currentQuestionIndex + step;
@@ -108,7 +110,6 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
             <CircularProgressbar
               value={((currentQuestionIndex + 1) / totalQuestions) * 100}
               text={`${currentQuestionIndex + 1}/${totalQuestions}`}
-              // text={`${currentQuestionIndex + 1}/${totalQuestions}`}
               styles={{
                 text: {
                   fontWeight: "bold",
@@ -133,8 +134,10 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
               imageurl={questions[currentQuestionIndex].imageurl}
               correctAnswer={questions[currentQuestionIndex].correct_answer}
               onClick={handleOnAnswerClick}
+              timeTaken={timeTaken}
             />
             <div className="flex justify-between mt-5">
+              {/* previous button to go back to previous question */}
               {/* <Button text='Prev' onClick={() => handleChangeQuestion(-1)} /> */}
               <Button
                 text={

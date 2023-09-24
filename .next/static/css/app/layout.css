@@ -563,9 +563,6 @@ video {
 .relative {
   position: relative;
 }
-.bottom-0 {
-  bottom: 0px;
-}
 .left-0 {
   left: 0px;
 }
@@ -602,6 +599,9 @@ video {
 }
 .mt-8 {
   margin-top: 2rem;
+}
+.ml-auto {
+  margin-left: auto;
 }
 .block {
   display: block;
@@ -799,6 +799,10 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 .accent-\[\#4d9f74\] {
   accent-color: #4d9f74;
