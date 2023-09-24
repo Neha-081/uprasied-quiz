@@ -2,8 +2,9 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
+import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { usePathname } from 'next/navigation'
 import HeaderImg from "../assets/headerImage.png";
 // Components
 import QuestionCard from "@/components/QuestionCard/QuestionCard";
@@ -24,8 +25,13 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
   const [userAnswers, setUserAnswers] = React.useState<Record<number, string>>(
     {}
   );
+  const pathname = usePathname()
+  console.log(userAnswers,"userAnswers");
+  
 
   const isQuestionAnswered = userAnswers[currentQuestionIndex] ? true : false;
+  console.log(isQuestionAnswered,"isQuestionAnswered");
+  
 
   const router = useRouter();
 
@@ -33,6 +39,9 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
     answer: string,
     currentQuestionIndex: number
   ) => {
+    if (!isQuestionAnswered) {
+
+    }
     // If user has already answered, do nothing
     if (isQuestionAnswered) return;
     // Check answer against correct answer
@@ -50,6 +59,7 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
     if (newQuestionIndex < 0 || newQuestionIndex >= totalQuestions) return;
     setCurrentQuestionIndex(newQuestionIndex);
   };
+console.log(pathname,"pathname");
 
 
   return (
@@ -81,10 +91,6 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
             path: {
               stroke: "#44B77B"
             }
-            // trailColor: "#f2f2f2",
-            // pathColor: "#44B77B",
-            // textColor: "black",
-            // textSize: "25px",
           }}
         />
       </div>
@@ -104,9 +110,10 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
             text={currentQuestionIndex === totalQuestions - 1 ? "End" : "Next"}
             onClick={
               currentQuestionIndex === totalQuestions - 1
-                ? () => router.push("/")
+                ? () => router.push("/score")
                 : () => handleChangeQuestion(1)
             }
+            disabled={!isQuestionAnswered}
           />
         </div>
       </div>
