@@ -10,7 +10,7 @@ type Props = {
   userAnswer: string | undefined;
   correctAnswer: string;
   onClick: (answer: string, currentQuestionIndex: number) => void;
-  imageurl: string
+  imageurl: string;
 };
 
 const QuestionCard: React.FC<Props> = ({
@@ -20,29 +20,15 @@ const QuestionCard: React.FC<Props> = ({
   userAnswer,
   onClick,
   correctAnswer,
-  imageurl
+  imageurl,
 }) => {
-
   return (
     <div>
       <p
         className="text-[15px] max-w-[400px] font-bold text-black mt-16"
         dangerouslySetInnerHTML={{ __html: question }}
       />
-      {/* {
-        <Image
-        className="h-[50px] w-full m-auto"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ690Ti09dMcVFzbOsqwa4j9B6ha1IIusTijQ&usqp=CAU'"
-        width={0}
-        height={0}
-        alt="nav"
-      />
-} */}
-{imageurl &&
-<img src={imageurl}
-className="m-auto p-2 max-h-[100px]"
-/>
-}
+      {imageurl && <img src={imageurl} className="m-auto p-2 max-h-[100px]" />}
       <div className="flex flex-col items-center pt-8">
         {answers.map((answer) => (
           <div
