@@ -16,7 +16,6 @@ export const getBGColor = (userAnswer: string | undefined, correctAnswer: string
       return 'accent-[#4d9f74]';
   
     if (isAnswerCorrect === false && answer === userAnswer) return 'accent-red-500';
-
   
     return 'accent-[#4d9f74]';
   };  

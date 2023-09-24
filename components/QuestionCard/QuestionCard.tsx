@@ -61,7 +61,7 @@ className="m-auto p-2 max-h-[100px]"
                 userAnswer,
                 correctAnswer,
                 answer
-              )} mx-2 w-5 h-5 rounded-full`}
+              )} mx-2 w-5 h-5 rounded-full checkbox-round`}
             />
             <span
               className="truncate mx-5"

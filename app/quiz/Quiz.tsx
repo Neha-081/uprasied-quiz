@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -12,6 +12,8 @@ import Button from "@/components/Button/Button";
 // Types
 import { QuestionsState } from "@/types";
 import Image from "next/image";
+import ScoreCard from "@/components/ScoreCard/ScoreCard";
+import Router from "next/router";
 
 type Props = {
   questions: QuestionsState;
@@ -19,9 +21,12 @@ type Props = {
 };
 
 const Quiz = ({ questions, totalQuestions }: Props) => {
+  console.log(totalQuestions,"totalQuestions");
+  
   
   const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0);
   const [score, setScore] = React.useState(0);
+  const [isEnd, setIsEnd] = useState(false);
   const [userAnswers, setUserAnswers] = React.useState<Record<number, string>>(
     {}
   );
@@ -73,6 +78,10 @@ console.log(pathname,"pathname");
         alt="nav"
       />
       </div>
+      {isEnd ? 
+      <ScoreCard score={score} totalQuestions={totalQuestions} /> :
+     
+     <>
       <div
         style={{ width: 120, height: 120 }}
         className="m-auto bg-white p-2 absolute rounded-full block top-16 left-0 right-0"
@@ -110,15 +119,15 @@ console.log(pathname,"pathname");
             text={currentQuestionIndex === totalQuestions - 1 ? "End" : "Next"}
             onClick={
               currentQuestionIndex === totalQuestions - 1
-                ? () => router.push("/score")
+                ? () => setIsEnd(true)
                 : () => handleChangeQuestion(1)
             }
             disabled={!isQuestionAnswered}
           />
         </div>
       </div>
-      {/* <p className='p-8 font-bold text-[20px]'>Score: {score}</p> */}
-      {/* </div> */}
+      </>
+}
     </div>
   );
 };
