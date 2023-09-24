@@ -6,6 +6,11 @@ Quiz designed to test your knowledge of key concepts in various aspects of field
 On selection of the answer, correct and wrong answer will get displayed, by ending the quiz a score card will get display at the end.
 
 
+# Demo
+
+https://uprasied-quiz.vercel.app/
+
+
 
 # Technology
 
