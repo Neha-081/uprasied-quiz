@@ -1,18 +1,17 @@
 "use client";
 
 import Button from "@/components/Button/Button";
-import Image from "next/image";
-import HeaderImg from "../../app/assets/headerImage.png";
 import { useRouter } from "next/navigation";
 import ReactSpeedometer from "react-d3-speedometer";
 
+// Define the props that the ScoreCard component receives.
 type Props = {
   score: number;
   totalQuestions: number;
 };
 
+// Define the ScoreCard component as a React functional component.
 const ScoreCard: React.FC<Props> = ({ score, totalQuestions }) => {
-
   const router = useRouter();
 
   return (
@@ -49,7 +48,6 @@ const ScoreCard: React.FC<Props> = ({ score, totalQuestions }) => {
           </p>
         </div>
         <div className="flex justify-between mt-8">
-          {/* <Button text='Prev' onClick={() => handleChangeQuestion(-1)} /> */}
           <Button
             text={"Start Again"}
             onClick={() => router.push("/")}

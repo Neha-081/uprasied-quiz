@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { getBGColor } from "./helper";
 
+// Define the props that the QuestionCard component receives.
 type Props = {
   currentQuestionIndex: number;
   question: string;
@@ -25,6 +26,7 @@ const QuestionCard: React.FC<Props> = ({
 }) => {
   const [timeTakenn, setTimeTakenn] = useState(0);
 
+  // Reset the timeTaken when the userAnswer changes.
   useEffect(() => {
     setTimeTakenn(0);
   }, [userAnswer]);
@@ -33,6 +35,8 @@ const QuestionCard: React.FC<Props> = ({
     const timeout = setInterval(() => {
       setTimeTakenn(timeTakenn + 1);
     }, 1000);
+
+    // Clean up the timer when the component unmounts.
     return () => {
       clearInterval(timeout);
     };
@@ -51,7 +55,7 @@ const QuestionCard: React.FC<Props> = ({
       />
       {imageurl && <img src={imageurl} className="m-auto p-2 max-h-[100px]" />}
       <div className="flex flex-col items-center pt-8">
-        {answers.map((answer, index) => (
+        {answers.map((answer) => (
           <div
             key={answer}
             onClick={() => onClick(answer, currentQuestionIndex)}

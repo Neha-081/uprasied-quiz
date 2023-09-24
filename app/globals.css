@@ -18,27 +18,10 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  /* height: 100vh; */
 }
 
 .speedometer {
   margin: auto;
-}
-
-.checkbox-round {
-  width:1.3rem;
-  height: 1.3rem;
-  border-radius: 50%;
-  vertical-align: middle;
-  border: 2px solid rgb(179, 173, 173);
-  appearance: none;
-  -webkit-appearance: none;
-  outline: none;
-  cursor: pointer;
-}
-.checkbox-round:checked {
-  appearance: auto;
-  clip-path: circle(50% at 50% 50%);
 }
 
 

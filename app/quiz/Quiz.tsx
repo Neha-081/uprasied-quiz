@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import { usePathname } from "next/navigation";
 import HeaderImg from "../assets/headerImage.png";
 // Components
 import QuestionCard from "@/components/QuestionCard/QuestionCard";
@@ -12,7 +11,6 @@ import Button from "@/components/Button/Button";
 import { QuestionsState } from "@/types";
 import Image from "next/image";
 import ScoreCard from "@/components/ScoreCard/ScoreCard";
-import Router from "next/router";
 
 type Props = {
   questions: QuestionsState;
@@ -57,7 +55,7 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
     if (isCorrect) setScore((prev) => prev + 1);
     // Save the answer in the object for user answers
     setUserAnswers((prev) => ({ ...prev, [currentQuestionIndex]: answer }));
-    const start = new Date();
+
     // mock post API having payload for answer and timme taken for each answer by user
     fetch("https://mocki.io/v1/06d5e9e1-3cf4-4fd1-85f2-42ad7b8a28ef", {
       method: "POST",
