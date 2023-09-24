@@ -11,6 +11,7 @@ export enum Difficulty {
     incorrect_answers: Array<string>;
     question: string;
     type: string;
+    imageurl: string;
   };
   
   export type QuestionsState = Array<Question & { answers: Array<string> }>;

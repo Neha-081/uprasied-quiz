@@ -18,6 +18,7 @@ type Props = {
 };
 
 const Quiz = ({ questions, totalQuestions }: Props) => {
+  
   const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0);
   const [score, setScore] = React.useState(0);
   const [userAnswers, setUserAnswers] = React.useState<Record<number, string>>(
@@ -50,8 +51,9 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
     setCurrentQuestionIndex(newQuestionIndex);
   };
 
+
   return (
-    <div className="overflow-hidden h-full relative">
+    <div className="h-full relative bg-[#AF9CF3]">
       <div>
       <Image
         className="h-[120px] w-full m-auto"
@@ -62,18 +64,28 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
       />
       </div>
       <div
-        style={{ width: 100, height: 100 }}
+        style={{ width: 120, height: 120 }}
         className="m-auto bg-white p-2 absolute rounded-full block top-16 left-0 right-0"
       >
         <CircularProgressbar
-          value={(currentQuestionIndex + 1) * 10}
+          value={(currentQuestionIndex + 1)/totalQuestions * 100}
           text={`${currentQuestionIndex + 1}/${totalQuestions}`}
-          styles={buildStyles({
-            trailColor: "#f2f2f2",
-            pathColor: "#44B77B",
-            textColor: "black",
-            textSize: "20px",
-          })}
+          // text={`${currentQuestionIndex + 1}/${totalQuestions}`}
+          styles={{
+            text: {
+              fontWeight: "bold", fontSize: "25px", fill: "#606265"
+            },
+            trail : {
+              stroke: "#f2f2f2"
+            },
+            path: {
+              stroke: "#44B77B"
+            }
+            // trailColor: "#f2f2f2",
+            // pathColor: "#44B77B",
+            // textColor: "black",
+            // textSize: "25px",
+          }}
         />
       </div>
       <div className="rounded-t-[30px] bg-white p-5 h-full">
@@ -82,10 +94,11 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
           question={questions[currentQuestionIndex].question}
           answers={questions[currentQuestionIndex].answers}
           userAnswer={userAnswers[currentQuestionIndex]}
+          imageurl={questions[currentQuestionIndex].imageurl}
           correctAnswer={questions[currentQuestionIndex].correct_answer}
           onClick={handleOnAnswerClick}
         />
-        <div className="flex justify-between mt-16">
+        <div className="flex justify-between mt-5">
           {/* <Button text='Prev' onClick={() => handleChangeQuestion(-1)} /> */}
           <Button
             text={currentQuestionIndex === totalQuestions - 1 ? "End" : "Next"}
